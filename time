@@ -1,0 +1,25 @@
+from telethon import TelegramClient, functions
+from datetime import datetime
+import asyncio
+
+api_id = 36655646
+api_hash = "5268877f61fabbbb5966df5f898fb979"
+
+client = TelegramClient("session", api_id, api_hash)
+
+async def update_name():
+    await client.start()
+
+    while True:
+        current_time = datetime.now().strftime("%H:%M")
+
+        await client(
+            functions.account.UpdateProfileRequest(
+               first.name=f"🕒 {00:38}"
+            )
+        )
+
+        await asyncio.sleep(300)
+
+with client:
+    client.loop.run_until_complete(update_name())
